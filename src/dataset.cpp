@@ -26,11 +26,30 @@ std::vector<anime> parseDataset(const std::string& filename) {
         location = line.find(','); //skips id
         line = line.substr(location + 1, line.length());
 
-        location = line.find(","); //gets title
-        anime.title = line.substr(0, location);
-        line = line.substr(location + 1, line.length());
+        std::string title;
+        bool is_genre = false;
+
+        while (!is_genre) {
+            location = line.find(","); //gets title
+            if (location == std::string::npos) { //prevents inf loop
+                break;
+            }
+
+            if (line[location + 1] == '"') { //if quotation marks are right after a comma, it's part of the genre
+                title.append(line.substr(0, location));
+                is_genre = true;
+                line = line.substr(location + 1, line.length());
+            }
+            else {
+                title.append(line.substr(0, location + 1)); //comma is in title
+                line = line.substr(location + 1, line.length());
+            }
+        }
+
+        anime.title = title;
 
         size_t location2 = line.find('"'); //finds second quotation mark for genres
+        is_genre = true;
         location = line.find('"', location2 + 1);
         anime.genre = line.substr(1, location - 1);
         line = line.substr(location + 1, location - location2 - 1);
