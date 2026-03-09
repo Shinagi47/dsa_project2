@@ -8,15 +8,17 @@
 #include <iosfwd>
 #include <vector>
 #include <string>
+#include <iomanip>
 
 struct anime {
     std::string title;
     std::string genre;
-    float score;
-    int number_of_ratings;
+    float score = 0;
+    int anime_id, number_of_ratings = 0;
     float niche_score; //hmmm gotta think about how this will be calculated
 };
 
-std::vector<anime> parseDataset(const std::string& filename);
+std::vector<anime> parseDataset1(const std::string& filename);
+std::vector<anime> parseDataset2(const std::string& filename, std::vector<anime>& animes);
 
 #endif //DSA_PROJECT2_DATASET_H
