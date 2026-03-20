@@ -21,4 +21,6 @@ struct anime {
 std::vector<anime> parseDataset1(const std::string& filename);
 std::vector<anime> parseDataset2(const std::string& filename, std::vector<anime>& animes);
 
+std::vector<anime> byGenre(const std::vector<anime>& animes, std::string& genre);
+
 #endif //DSA_PROJECT2_DATASET_H

@@ -6,8 +6,13 @@
 #define DSA_PROJECT2_HEAPSORT_H
 
 
-class heapsort {
-};
+#include <iostream>
+#include <vector>
+#include <iomanip>
+#include "dataset.h"
+using namespace std;
+
+void quickSort(std::vector<anime>& animes);
 
 
 #endif //DSA_PROJECT2_HEAPSORT_H
