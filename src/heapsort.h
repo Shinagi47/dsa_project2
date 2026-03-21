@@ -12,7 +12,8 @@
 #include "dataset.h"
 using namespace std;
 
-void quickSort(std::vector<anime>& animes);
+void heapify(vector<anime>& animes, int heapSize, int root); // heapify a subtree
+void heapSort(vector<anime>& animes, int heapSize); // heap sort
 
 
 #endif //DSA_PROJECT2_HEAPSORT_H
