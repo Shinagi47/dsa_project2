@@ -13,11 +13,8 @@ int main() {
     animes = parseDataset2("../database/rating-1.csv", animes); //parce anime.csv. will parce rating.csv too
     animes = parseDataset2("../database/rating-2.csv", animes); //parce anime.csv. will parce rating.csv too
 
-    //if action genre selected... if romance genre selected... etc
-    //new array of only that genre ?
-
     while (true) {
-        cout << "Enter a genre:";
+        cout << "Enter a genre: ";
         string genre;
         cin >> genre;
         for (int i = 0; i < genre.size(); i++) {
@@ -32,62 +29,33 @@ int main() {
         std::vector<anime> filtered = animes;
 
         filtered = filterByGenre(animes, genre);
+
+        cout << "Select sorting method: (enter number) " << endl;
+        cout << "1. Heap Sort" << endl;
+        cout << "2. Quick Sort" << endl;
+
+        int sortingMethod;
+        cin >> sortingMethod;
+        if (sortingMethod == 1) {
+            //1. heap sort by number of ratings
+            //2. remove anime with top 50% of ratings
+            //3. heap sort by avg score
+            //4. display top 10
+        }
+        else if (sortingMethod == 2) {
+            //1. quick sort by number of ratings
+            //2. remove anime with top 50% of ratings
+            //3. quick sort by avg score
+            //4. display top 10
+        }
+
         //TESTING
         for (int i = 0; i < filtered.size(); i++) {
             std::cout << filtered[i].title << ": " << filtered[i].genre << ", " << fixed<<setprecision(2)<<filtered[i].score << ", " << filtered[i].number_of_ratings << std::endl; //testing
         }
+
         filtered = animes;
     }
-
-    /*
-    if (genre == "action") {
-
-    }
-    else if (genre == "adventure") {
-
-    }
-    else if (genre == "comedy") {
-
-    }
-    else if (genre == "drama") {
-
-    }
-    else if (genre == "fantasy") {
-
-    }
-    else if (genre == "historical") {
-
-    }
-    else if (genre == "horror") {
-
-    }
-    else if (genre == "mystery") {
-
-    }
-    else if (genre == "romance") {
-
-    }
-    else if (genre == "sci-fi") {
-
-    }
-    else if (genre == "slice of life") {
-
-    }
-    else if (genre == "supernatural") {
-
-    }
-    else if (genre == "thriller") {
-
-    }
-    */
-
-    //if heapsort selected... take in struct vector
-    //call heapsort based on niche score values
-    //vector<anime> heapSorted = heapSort(animes);
-
-    //if quicksort selected... take in struct vector
-    //call quicksort based on niche score values
-    //vector<anime> quickSorted = quickSort(animes);
 
     return 0;
 }
