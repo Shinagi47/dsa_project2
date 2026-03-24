@@ -3,9 +3,12 @@
 //
 
 #include <iostream>
+#include "math.h"
 #include <vector>
 #include <iomanip>
+#include <algorithm>
 #include "dataset.h"
+#include "heapsort.h"
 using namespace std;
 
 int main() {
@@ -41,6 +44,16 @@ int main() {
             //2. remove anime with top 50% of ratings
             //3. heap sort by avg score
             //4. display top 10
+          vector<anime> heapSortedVec = heapSort(animes, animes.size()); 
+          // if heap sort selected: rmv top 60% anime in # of ratings; descending order; heap sort again; display top 10
+          for (int i = 0; i < ceil(animes.size() * .40); i++) {
+              heapSortedVec.pop_back();
+          }
+          reverse(heapSortedVec.begin(), heapSortedVec.end());
+          vector<anime> heapSortedVec = heapSort(animes, animes.size()); // make another function to heap sort by avg score
+          for (int i = 0; i < 10; i++) {
+              cout << i << ")" << heapSortedVec[i].title << ", Number of Ratings: " << heapSortedVec[i].number_of_ratings << endl;
+          }
         }
         else if (sortingMethod == 2) {
             //1. quick sort by number of ratings
