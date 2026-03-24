@@ -44,12 +44,13 @@ int main() {
             //2. remove anime with top 50% of ratings
             //3. heap sort by avg score
             //4. display top 10
-            vector<anime> heapSortedVec = heapSortByNumRatings(animes, animes.size()); // heap sort by num of ratings
-            for (int i = 0; i < ceil(animes.size() * .50); i++) {
+            vector<anime> heapSortedVec = heapSortByNumRatings(filtered, filtered.size()); // heap sort by num of ratings
+            for (int i = 0; i < ceil(heapSortedVec.size() * .50); i++) {
                 heapSortedVec.pop_back();
             }
             reverse(heapSortedVec.begin(), heapSortedVec.end()); // place into descending order
-            vector<anime> heapSortedVec = heapSortByAvgScore(animes, animes.size()); // heap sort by score
+            vector<anime> heapSortedVec = heapSortByAvgScore(heapSortedVec, heapSortedVec.size()); // heap sort by score
+            // display top 10
             for (int i = 0; i < 10; i++) {
                 cout << i << ")" << heapSortedVec[i].title << ", Score: " << heapSortedVec[i].score << endl;
             }
