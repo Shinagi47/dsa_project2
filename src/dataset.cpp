@@ -6,6 +6,7 @@
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 std::vector<anime> parseDataset1(const std::string& filename) {
     std::ifstream file(filename);
@@ -115,4 +116,36 @@ std::vector<anime> parseDataset2(const std::string& filename, std::vector<anime>
 
     //fix this function, then do rating-2.csv
     return animes;
+}
+
+std::vector<anime> filterByGenre(const std::vector<anime>& animes, std::string& genre) {
+    std::vector<anime> filtered;
+
+    for (auto anime : animes) {
+        std::string line = anime.genre;
+
+        while (true) {
+            size_t location = line.find(',');
+            std::string currentGenre;
+            if (location == std::string::npos) { //last genre, no more commas
+                currentGenre = line;
+            }
+            else {
+                currentGenre = line.substr(0, location);
+            }
+
+            if (currentGenre == genre) {
+                filtered.push_back(anime);
+                break;
+            }
+
+            if (location == std::string::npos) {
+                break;
+            }
+
+            line = line.substr(location + 1, line.length());
+        }
+    }
+
+    return filtered;
 }
