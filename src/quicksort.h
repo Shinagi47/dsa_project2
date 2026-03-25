@@ -12,7 +12,11 @@
 #include "dataset.h"
 using namespace std;
 
-void quickSort(std::vector<anime>& animes);
+int partitionByScore(vector<anime>& animes, int low, int high);
+void quickSortByScore(std::vector<anime>& animes, int low, int high);
+
+int partitionByNumRatings(vector<anime>& animes, int low, int high);
+void quickSortByNumRatings(vector<anime>& animes, int low, int high);
 
 
 #endif //DSA_PROJECT2_QUICKSORT_H
