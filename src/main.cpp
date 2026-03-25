@@ -9,6 +9,7 @@
 #include <algorithm>
 #include "dataset.h"
 #include "heapsort.h"
+#include "quicksort.h"
 using namespace std;
 
 int main() {
@@ -75,6 +76,25 @@ int main() {
             //2. remove anime with top 50% of ratings
             //3. quick sort by avg score
             //4. display top 10
+            vector<anime> quickSortVec = quickSortByNumRatings(filtered, 0, filtered.size()-1);
+            for (int i = 0; i < ceil(quickSortVec.size() * .20); i++) {
+                quickSortVec.pop_back();
+            }
+
+            for (int i = 0; i < quickSortVec.size(); i++) {
+                if (quickSortVec[i].number_of_ratings < 10) {
+                    quickSortVec.erase(quickSortVec.begin() + i);
+                    i = i - 1;
+                }
+            }
+
+            quickSortVec = quickSortByScore(quickSortVec, 0, quickSortVec.size()-1);
+
+            cout << "Top 10 Niche " << genre << " Anime Series" << endl;
+            for (int i = 1; i < 11; i++) {
+                cout << i << ") " << quickSortVec[i].title << ", Score: " << fixed<<setprecision(2)<<quickSortVec[i].score << ", Number of Ratings: " << quickSortVec[i].number_of_ratings << endl;
+            }
+            cout << endl;
         }
 
         filtered = animes; //resets list
