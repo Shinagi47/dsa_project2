@@ -13,10 +13,10 @@
 using namespace std;
 
 vector<anime> heapifyByNumRatings(vector<anime>& animes, int heapSize, int root); // heapify a subtree by number of ratings
-vector<anime> heapifyByAvgScore(vector<anime>& animes, int heapSize, int root); // heapify a subtree by avg score
+vector<anime> heapifyByAvgScore(vector<anime>& animes, float heapSize, float root); // heapify a subtree by avg score
 
 vector<anime> heapSortByNumRatings(vector<anime>& animes, int heapSize); // heap sort by number of ratings
-vector<anime> heapSortByAvgScore(vector<anime>& animes, int heapSize); // heap sort by avg score
+vector<anime> heapSortByAvgScore(vector<anime>& animes, float heapSize); // heap sort by avg score
 
 
 

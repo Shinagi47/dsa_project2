@@ -32,12 +32,12 @@ vector<anime> heapifyByNumRatings(vector<anime>& animes, int heapSize, int root)
     return vecCopy;
 };
 
-vector<anime> heapifyByAvgScore(vector<anime>& animes, int heapSize, int root) {
+vector<anime> heapifyByAvgScore(vector<anime>& animes, float heapSize, float root) {
     vector<anime> vecCopy = animes; // create a copy
 
-    int largest = root;
-    int left = 2*root + 1;
-    int right = 2*root + 2; 
+    float largest = root;
+    float left = 2*root + 1;
+    float right = 2*root + 2;
 
     // if the left childs score is higher than the largest's score
     if (left < heapSize && vecCopy[left].score > vecCopy[largest].score) largest = left;
@@ -71,7 +71,7 @@ vector<anime> heapSortByNumRatings(vector<anime>& animes, int heapSize) {
     return vecCopy;
 };
 
-vector<anime> heapSortByAvgScore(vector<anime>& animes, int heapSize) {
+vector<anime> heapSortByAvgScore(vector<anime>& animes, float heapSize) {
     vector<anime> vecCopy = animes; // create a copy
 
     // build the heap

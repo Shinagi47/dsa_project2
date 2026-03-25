@@ -52,7 +52,7 @@ int main() {
             }
 
             for (int i = 0; i < heapSortedVec.size(); i++) {
-                if (heapSortedVec[i].number_of_ratings < 10) {
+                if (heapSortedVec[i].number_of_ratings < 10) { //remove series with less than 10 num of ratings
                     heapSortedVec.erase(heapSortedVec.begin() + i);
                     i = i - 1;
                 }
@@ -64,10 +64,17 @@ int main() {
 
             reverse(heapSortedVec.begin(), heapSortedVec.end()); // place into descending order
 
-            // display top 10, score to 2 s.f.
+            //display top 10, score to 2 s.f.
             cout << "Top 10 Niche " << genre << " Anime Series" << endl;
-            for (int i = 1; i < 11; i++) {
-                cout << i << ") " << heapSortedVec[i].title << ", Score: " << fixed<<setprecision(2)<<heapSortedVec[i].score << ", Number of Ratings: " << heapSortedVec[i].number_of_ratings << endl;
+            if (heapSortedVec.size() >= 10) {
+                for (int i = 1; i < 11; i++) {
+                    cout << i << ") " << heapSortedVec[i].title << ", Score: " << fixed<<setprecision(2)<<heapSortedVec[i].score << ", Number of Ratings: " << heapSortedVec[i].number_of_ratings << endl;
+                }
+            }
+            else {
+                for (int i = 1; heapSortedVec.size(); ++i) {
+                    cout << i << ") " << heapSortedVec[i].title << ", Score: " << fixed<<setprecision(2)<<heapSortedVec[i].score << ", Number of Ratings: " << heapSortedVec[i].number_of_ratings << endl;
+                }
             }
             cout << endl;
         }
@@ -76,23 +83,32 @@ int main() {
             //2. remove anime with top 50% of ratings
             //3. quick sort by avg score
             //4. display top 10
-            vector<anime> quickSortVec = quickSortByNumRatings(filtered, 0, filtered.size()-1);
-            for (int i = 0; i < ceil(quickSortVec.size() * .20); i++) {
+            vector<anime> quickSortVec = quickSortByNumRatings(filtered, 0, filtered.size()-1); //quick sort by num of ratings
+
+            for (int i = 0; i < ceil(quickSortVec.size() * .20); i++) { //remove anime with top 20% of num of ratings
                 quickSortVec.pop_back();
             }
 
             for (int i = 0; i < quickSortVec.size(); i++) {
-                if (quickSortVec[i].number_of_ratings < 10) {
+                if (quickSortVec[i].number_of_ratings < 10) { //remove series with less than 10 num of ratings
                     quickSortVec.erase(quickSortVec.begin() + i);
                     i = i - 1;
                 }
             }
 
-            quickSortVec = quickSortByScore(quickSortVec, 0, quickSortVec.size()-1);
+            quickSortVec = quickSortByScore(quickSortVec, 0, quickSortVec.size()-1); //quick sort by score
 
+            //display top 10, score to 2 s.f.
             cout << "Top 10 Niche " << genre << " Anime Series" << endl;
-            for (int i = 1; i < 11; i++) {
-                cout << i << ") " << quickSortVec[i].title << ", Score: " << fixed<<setprecision(2)<<quickSortVec[i].score << ", Number of Ratings: " << quickSortVec[i].number_of_ratings << endl;
+            if (quickSortVec.size() >= 10) {
+                for (int i = 1; i < 11; i++) {
+                    cout << i << ") " << quickSortVec[i].title << ", Score: " << fixed<<setprecision(2)<<quickSortVec[i].score << ", Number of Ratings: " << quickSortVec[i].number_of_ratings << endl;
+                }
+            }
+            else {
+                for (int i = 1; quickSortVec.size(); ++i) {
+                    cout << i << ") " << quickSortVec[i].title << ", Score: " << fixed<<setprecision(2)<<quickSortVec[i].score << ", Number of Ratings: " << quickSortVec[i].number_of_ratings << endl;
+                }
             }
             cout << endl;
         }
