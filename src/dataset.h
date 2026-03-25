@@ -15,7 +15,6 @@ struct anime {
     std::string genre;
     float score = 0;
     int anime_id, number_of_ratings = 0;
-    float niche_score; //hmmm gotta think about how this will be calculated...
 };
 
 std::vector<anime> parseDataset1(const std::string& filename);

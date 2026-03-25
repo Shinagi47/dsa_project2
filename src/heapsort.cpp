@@ -26,7 +26,7 @@ vector<anime> heapifyByNumRatings(vector<anime>& animes, int heapSize, int root)
     // if the largest is not the root
     if (largest != root) {
         swap(vecCopy[root], vecCopy[largest]);
-        vecCopy = heapify(vecCopy, heapSize, largest); // recursion hooray
+        vecCopy = heapifyByNumRatings(vecCopy, heapSize, largest); // recursion hooray
     }
 
     return vecCopy;
@@ -48,7 +48,7 @@ vector<anime> heapifyByAvgScore(vector<anime>& animes, int heapSize, int root) {
     // if the largest is not the root
     if (largest != root) {
         swap(vecCopy[root], vecCopy[largest]);
-        vecCopy = heapify(vecCopy, heapSize, largest); // recursion hooray
+        vecCopy = heapifyByAvgScore(vecCopy, heapSize, largest); // recursion hooray
     }
 
     return vecCopy;

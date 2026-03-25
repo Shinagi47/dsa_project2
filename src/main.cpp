@@ -48,10 +48,10 @@ int main() {
             for (int i = 0; i < ceil(heapSortedVec.size() * .50); i++) {
                 heapSortedVec.pop_back();
             }
-            reverse(heapSortedVec.begin(), heapSortedVec.end()); // place into descending order
-            vector<anime> heapSortedVec = heapSortByAvgScore(heapSortedVec, heapSortedVec.size()); // heap sort by score
+            //reverse(heapSortedVec.begin(), heapSortedVec.end()); // place into descending order
+            heapSortedVec = heapSortByAvgScore(heapSortedVec, heapSortedVec.size()); // heap sort by score
             // display top 10
-            for (int i = 0; i < 10; i++) {
+            for (int i = 1; i < 11; i++) {
                 cout << i << ")" << heapSortedVec[i].title << ", Score: " << heapSortedVec[i].score << endl;
             }
         }
@@ -63,9 +63,9 @@ int main() {
         }
 
         //TESTING
-        for (int i = 0; i < filtered.size(); i++) {
+        /*for (int i = 0; i < filtered.size(); i++) {
             std::cout << filtered[i].title << ": " << filtered[i].genre << ", " << fixed<<setprecision(2)<<filtered[i].score << ", " << filtered[i].number_of_ratings << std::endl; //testing
-        }
+        }*/
 
         filtered = animes;
     }
