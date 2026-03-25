@@ -13,10 +13,10 @@
 using namespace std;
 
 int partitionByScore(vector<anime>& animes, int low, int high);
-void quickSortByScore(std::vector<anime>& animes, int low, int high);
+vector<anime> quickSortByScore(std::vector<anime>& animes, int low, int high);
 
 int partitionByNumRatings(vector<anime>& animes, int low, int high);
-void quickSortByNumRatings(vector<anime>& animes, int low, int high);
+vector<anime> quickSortByNumRatings(vector<anime>& animes, int low, int high);
 
 
 #endif //DSA_PROJECT2_QUICKSORT_H

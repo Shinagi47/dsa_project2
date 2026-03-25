@@ -36,13 +36,14 @@ int partitionByScore(vector<anime>& animes, int low, int high) {
     swap(vecCopy[low], vecCopy[down]);
     return down;
 }
-void quickSortByScore(std::vector<anime>& animes, int low, int high) {
+vector<anime> quickSortByScore(std::vector<anime>& animes, int low, int high) {
     vector<anime> vecCopy = animes;
     if (low < high) {
         int pivot = partitionByScore(vecCopy, low, high);
         quickSortByScore(vecCopy, low, pivot-1);
         quickSortByScore(vecCopy, pivot+1, high);
     }
+    return vecCopy;
 }
 
 int partitionByNumRatings(vector<anime> &animes, int low, int high) {
@@ -71,13 +72,14 @@ int partitionByNumRatings(vector<anime> &animes, int low, int high) {
     return down;
 }
 
-void quickSortByNumRatings(vector<anime> &animes, int low, int high) {
+vector<anime> quickSortByNumRatings(vector<anime>& animes, int low, int high) {
     vector<anime> vecCopy = animes;
     if (low < high) {
         int pivot = partitionByNumRatings(vecCopy, low, high);
         quickSortByNumRatings(vecCopy, low, pivot-1);
         quickSortByNumRatings(vecCopy, pivot+1, high);
     }
+    return vecCopy;
 }
 
 
