@@ -98,6 +98,9 @@ int main() {
 
             quickSortVec = quickSortByScore(quickSortVec, 0, quickSortVec.size()-1); //quick sort by score
 
+            reverse(quickSortVec.begin(), quickSortVec.end());
+
+
             //display top 10, score to 2 s.f.
             cout << "Top 10 Niche " << genre << " Anime Series" << endl;
             if (quickSortVec.size() >= 10) {
