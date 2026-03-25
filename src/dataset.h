@@ -15,12 +15,11 @@ struct anime {
     std::string genre;
     float score = 0;
     int anime_id, number_of_ratings = 0;
-    float niche_score; //hmmm gotta think about how this will be calculated...
 };
 
 std::vector<anime> parseDataset1(const std::string& filename);
 std::vector<anime> parseDataset2(const std::string& filename, std::vector<anime>& animes);
 
-std::vector<anime> filterByGenre(const std::vector<anime>& animes, std::string& genre);
+std::vector<anime> filterByGenre(std::vector<anime>& animes, std::string& genre);
 
 #endif //DSA_PROJECT2_DATASET_H
