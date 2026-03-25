@@ -20,6 +20,6 @@ struct anime {
 std::vector<anime> parseDataset1(const std::string& filename);
 std::vector<anime> parseDataset2(const std::string& filename, std::vector<anime>& animes);
 
-std::vector<anime> filterByGenre(const std::vector<anime>& animes, std::string& genre);
+std::vector<anime> filterByGenre(std::vector<anime>& animes, std::string& genre);
 
 #endif //DSA_PROJECT2_DATASET_H

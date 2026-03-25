@@ -118,7 +118,7 @@ std::vector<anime> parseDataset2(const std::string& filename, std::vector<anime>
     return animes;
 }
 
-std::vector<anime> filterByGenre(const std::vector<anime>& animes, std::string& genre) {
+std::vector<anime> filterByGenre(std::vector<anime>& animes, std::string& genre) {
     std::vector<anime> filtered;
 
     for (auto anime : animes) {
