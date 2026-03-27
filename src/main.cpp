@@ -19,6 +19,10 @@ int main() {
     animes = parseDataset2("../database/rating-1.csv", animes); //parce anime.csv. will parce rating.csv too
     animes = parseDataset2("../database/rating-2.csv", animes); //parce anime.csv. will parce rating.csv too
 
+    cout << "-------------------------" << endl;
+    cout << "  Welcome to yourNiche!" << endl;
+    cout << "-------------------------" << endl;
+
     while (true) {
         cout << "Enter a genre: ";
         string genre;
@@ -70,7 +74,7 @@ int main() {
             reverse(heapSortedVec.begin(), heapSortedVec.end()); // place into descending order
 
             //display top 10, score to 2 s.f.
-            cout << "Top 10 Niche " << genre << " Anime Series" << endl;
+            cout << "Top 10 Niche " << "'" << genre << "'" << " Anime Series" << endl;
             if (heapSortedVec.size() >= 10) {
                 for (int i = 1; i < 11; i++) {
                     cout << i << ") " << heapSortedVec[i].title << ", Score: " << fixed<<setprecision(2)<<heapSortedVec[i].score << ", Number of Ratings: " << heapSortedVec[i].number_of_ratings << endl;
